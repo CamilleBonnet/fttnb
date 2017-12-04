@@ -92,19 +92,11 @@
       <default>NULL</default><relation table="users" row="id" />
 
     </row>
-    <row name="picture_1" null="1" autoincrement="0">
-      <datatype>MEDIUMTEXT</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="picture_2" null="1" autoincrement="0">
-      <datatype>MEDIUMTEXT</datatype>
-      <default>NULL</default>
-    </row>
     <key type="PRIMARY" name="">
       <part>id</part>
     </key>
   </table>
-  <table x="1002" y="400" name="bookings">
+  <table x="1010" y="386" name="bookings">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default>
@@ -129,6 +121,10 @@
     </row>
     <row name="price_booking" null="1" autoincrement="0">
       <datatype>DECIMAL</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="status" null="1" autoincrement="0">
+      <datatype>MEDIUMTEXT</datatype>
       <default>NULL</default>
     </row>
     <key type="PRIMARY" name="">
@@ -160,7 +156,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="1583.25" y="432" name="accounts">
+  <table x="1583" y="432" name="accounts">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default>
