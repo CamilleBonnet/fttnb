@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  devise_for :registrations, :controllers => { registrations: "registrations"}
 
-  # root to: 'flast#welcome'
+  root to: 'flats#home'
 
   # routes for the flat model
   resources :flats do
