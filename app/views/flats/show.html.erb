@@ -1,2 +1,38 @@
 <h1>Flat#show</h1>
 <p>Find me in app/views/flat/show.html.erb</p>
+
+
+
+<div class="container">
+    <div class="grid text-center">
+      <div class="main">
+        <div class="card-content">
+          <img src="images/salon7.jpg" alt="">
+          <h2>Flats Name</h2>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="card-content">
+          <h3>Flats Infos</h3>
+          <p class="text-justify">
+            <ul>
+              <li>
+                <p>flat infos</p>
+                <p>flat infos</p>
+              </li>
+              <br>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="bio">
+        <div class="card-content text-justify">
+          <%= simple_form_for [@cocktail, @dose] do |f| %>
+            <%= f.input :description %>
+            <%= f.input :ingredient_id, collection: @ingredients %>
+            <%= f.submit class:"btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
