@@ -1,2 +1,9 @@
 <h1>Flat#new</h1>
 <p>Find me in app/views/flat/new.html.erb</p>
+
+<%= simple_form_for [@user, @flat] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :user_id %>
+  <%= f.submit class:"btn btn-danger" %>
+<% end %>
