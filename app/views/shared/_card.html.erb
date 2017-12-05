@@ -1,0 +1,10 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/1600x900/?cocktail');">
+
+    <div class="card-description">
+    <h2><%= flat.name %></h2>
+    <p> <%= link_to "delete", flat_path(flat),
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete the #{flat.name} ?" } %></p>
+    </div>
+    <%= link_to "", flat_path(cocktail), class: "card-link" %>
+</div>
