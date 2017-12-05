@@ -24,7 +24,8 @@ nb_seed.times do |x|
     wifi_available = rand(2) == 1
     wifi_pwd = wifi_available ? Faker::Internet.password(8) : ""
     description = "What a nice flat " + user_first_name + " has !!!"
-    flat = Flat.new(name: flat_name, address: flat_address, nb_rooms: rand(2) + 1, nb_people_max: rand(6), pets_allowed: pets_allowed, wifi_available: wifi_available, wifi_pwd: wifi_pwd, description: description)
+    price = rand(10) + 30
+    flat = Flat.new(name: flat_name, address: flat_address, nb_rooms: rand(2) + 1, nb_people_max: rand(6), pets_allowed: pets_allowed, wifi_available: wifi_available, wifi_pwd: wifi_pwd, description: description, price: price.to_i)
     flat.user = user
     puts "    >>>> Flat #{x / 2} created" if flat.save
   end
