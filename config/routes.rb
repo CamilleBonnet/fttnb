@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
-
-  get 'users/edit'
+  mount Attachinary::Engine => "/attachinary"
 
   devise_for :registrations, :controllers => { registrations: "registrations"}
 

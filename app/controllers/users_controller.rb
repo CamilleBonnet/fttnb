@@ -4,4 +4,6 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  ### param require!! ADD [:photo]
 end
