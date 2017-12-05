@@ -1,38 +1,40 @@
-<h1>Flat#show</h1>
-<p>Find me in app/views/flat/show.html.erb</p>
-
-
-
-<div class="container">
-    <div class="grid text-center">
-      <div class="main">
-        <div class="card-content">
-          <img src="images/salon7.jpg" alt="">
-          <h2>Flats Name</h2>
-        </div>
-      </div>
-      <div class="stats">
-        <div class="card-content">
-          <h3>Flats Infos</h3>
-          <p class="text-justify">
-            <ul>
-              <li>
-                <p>flat infos</p>
-                <p>flat infos</p>
-              </li>
-              <br>
-            </ul>
-          </p>
-        </div>
-      </div>
-      <div class="bio">
-        <div class="card-content text-justify">
-          <%= simple_form_for [@cocktail, @dose] do |f| %>
-            <%= f.input :description %>
-            <%= f.input :ingredient_id, collection: @ingredients %>
-            <%= f.submit class:"btn btn-success" %>
-          <% end %>
-        </div>
+<div class="main-container">
+  <div class="info-container text-center">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <h3><%= @flat.name %></h3>
+        <ul>
+          <li>
+            <%= @flat.address %>
+          </li>
+          <li>
+            <%= @flat.nb_rooms %>
+          </li>
+          <li>
+            <%= @flat.nb_people_max %>
+          </li>
+          <li>
+            <%= @flat.wifi_available %>
+          </li>
+          <li>
+            <%= @flat.wifi_pwd %>
+          </li>
+          <li>
+            <%= @flat.pick_up_services %>
+          </li>
+          <li>
+            <%= @flat.description %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
+  <div class="booking-form">
+    <h3>Book this flat</h3>
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.submit class:"btn btn-danger" %>
+    <% end %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_registration!, only: :home
 
-  before_action :set_flat, only: [:show, :edit]
+  before_action :set_flat, only: [:show, :edit, :update, :destroy]
 
   def home
     "Hello"
