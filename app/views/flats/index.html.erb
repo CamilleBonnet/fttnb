@@ -1,2 +1,13 @@
-<h1>Flat#index</h1>
-<p>Find me in app/views/flat/index.html.erb</p>
+
+
+<%= render 'shared/navbar' %>
+<div class="container cards_container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <%= render 'shared/card', flat: flat %>
+     </div>
+    <% end %>
+  </div>
+</div>
+
