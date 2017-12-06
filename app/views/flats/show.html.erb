@@ -1,36 +1,58 @@
 <div class="container">
-      <div class="col-xs-12 col-md-9 info-container">
-        <h3 class="text-center"><%= @flat.name %></h3>
-        <ul>
-          <li>
-            <%= @flat.address %>
-          </li>
-          <li>
-            <%= @flat.nb_rooms %>
-          </li>
-          <li>
-            <%= @flat.nb_people_max %>
-          </li>
-          <li>
-            <%= @flat.wifi_available %>
-          </li>
-          <li>
-            <%= @flat.wifi_pwd %>
-          </li>
-          <li>
-            <%= @flat.pick_up_services %>
-          </li>
-          <li>
-            <%= @flat.description %>
-          </li>
-        </ul>
-      </div>
-  <div class="col-xs-12 col-md-3 booking-form">
-      <h3>Book this flat</h3>
-      <%= simple_form_for(@flat) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.submit class:"btn btn-danger" %>
+    <% if @flat.photo? %>
+      <% @flat.photo.each do |photo| %>
+  <div class="row">
+        <div class="col-xs-12 col-md-4 col-xs-offset-1 flat-photo">
+          <%= cl_image_tag photo.path, width: 950, height: 250, crop: :fill %>
+        </div>
+  </div>
       <% end %>
+    <% end %>
+</div>
+<div class="container text-center">
+  <div class="col-xs-12 col-md-8 info-container">
+    <h2><%= @flat.name %></h2>
+    <div class="row">
+      <h4>Address ?</h4>
+      <p><%= @flat.address %></p>
+    </div>
+    <div class="row">
+      <h4>How many rooms ?</h4>
+     <p><%= @flat.nb_rooms %> rooms</p>
+    </div>
+    <div class="row">
+      <h4>Flat max capacity ?</h4>
+     <p><%= @flat.nb_people_max %> people</p>
+    </div>
+    <div class="row">
+     <h4>Pets allowed ?</h4>
+     <p><%= @flat.pets_allowed ? 'Yes' : 'No' %></p>
+    </div>
+    <div class="row">
+     <h4>Wifi ?</h4>
+     <p><%= @flat.wifi_available ? 'Yes' : 'No' %></p>
+    </div>
+    <div class="row">
+     <h4>Pickup Services ?</h4>
+     <p><%= @flat.pick_up_services ? 'Yes' : 'No' %></p>
+    </div>
+    <div class="row">
+      <h4>Price</h4>
+     <p><%= @flat.price %>€ per night</p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4 booking-form">
+    <h3>Book this flat</h3>
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.submit class:"btn btn-danger" %>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-md-8 review">
+    <h2>Reviews</h2>
+  </div>
+  <div class="col-xs-12 col-md-8 map">
+    <h2>Map</h2>
   </div>
 </div>
