@@ -1,5 +1,15 @@
 
-
-<h2> <%=@user.first_name %> </h2>
-
-<%= link_to 'Edit profile', edit_user_profile_path(current_user) %>
+<div class="container profile-container">
+  <div class="row">
+    <div class="username">
+      <div class="col-sm-8 col-md-12 col-lg-12">
+       <h2>Hey, I'm <%=@user.first_name %></h2>
+     </div>
+     <div class="edit_profile_container space-3">
+      <%= link_to 'Edit profile',edit_user_profile_path(current_user), {class: "btn"}%>
+     </div>
+     <div class="col-lg-3 col-md-4 hide-sm profile-pic">
+      <%= image_tag "https://a0.muscache.com/defaults/user_pic-225x225.png?v=3", options={size: "225x225",  alt: "Maria"} %>
+    </div>
+  </div>
+</div>
