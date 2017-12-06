@@ -1,8 +1,6 @@
-<div class="main-container">
-  <div class="info-container text-center">
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <h3><%= @flat.name %></h3>
+<div class="container">
+      <div class="col-xs-12 col-md-9 info-container">
+        <h3 class="text-center"><%= @flat.name %></h3>
         <ul>
           <li>
             <%= @flat.address %>
@@ -27,14 +25,12 @@
           </li>
         </ul>
       </div>
-    </div>
-  </div>
-  <div class="booking-form">
-    <h3>Book this flat</h3>
-    <%= simple_form_for(@flat) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :address %>
-      <%= f.submit class:"btn btn-danger" %>
-    <% end %>
+  <div class="col-xs-12 col-md-3 booking-form">
+      <h3>Book this flat</h3>
+      <%= simple_form_for(@flat) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.submit class:"btn btn-danger" %>
+      <% end %>
   </div>
 </div>
