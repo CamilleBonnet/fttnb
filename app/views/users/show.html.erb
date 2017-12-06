@@ -21,7 +21,7 @@
             <% @user_flats.each do |flat| %>
               <div class="">
                 <div class="flat-info">
-                  <h2><%= flat.name %></h2>
+                  <h2><%= link_to flat.name, flat_path(flat) %></h2>
                   Address: <%= flat.address %>
                 </div>
                 <div class="flat-photos">
