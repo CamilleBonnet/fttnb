@@ -28,6 +28,10 @@
   align-items: center;
   justify-content: space-between;
 }
+/* Left section */
+.search-form-wrapper #search_query {
+  width: 350px;
+}
 
 /* Basic navbar item */
 .navbar-wagon-item {

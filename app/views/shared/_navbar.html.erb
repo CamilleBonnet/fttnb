@@ -4,6 +4,13 @@
     <%= image_tag "airbnb-2.jpg", height: 50 %>
   <% end %>
 
+  <div class="search-form-wrapper ">
+    <%= simple_form_for :search, url: flats_path, html: {class: 'form-inline'}, method: :get do |f| %>
+          <%= f.input :query, :label => false, :autofocus => true, placeholder: 'Search', required: false %>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+
 
 
   <!-- Right Navigation -->
