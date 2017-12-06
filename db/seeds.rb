@@ -14,7 +14,10 @@ nb_seed.times do |x|
   puts "Registration #{x} created" if reg.save
 
   user = User.new(first_name: user_first_name, last_name: user_last_name, registration_id: reg.id)
-  puts "User #{x} created" if user.save
+  if user.save
+    user.photo_url = "https://i.pinimg.com/236x/c2/7c/27/c27c277903bc87b329a29005a1a371b2--funny-facebook-picture-collection.jpg"
+    puts "User #{x} created"
+  end
 
   if x % 2 == 0
     puts "    >>>> Let's create Flat #{x / 2}"
@@ -27,7 +30,11 @@ nb_seed.times do |x|
     price = rand(10) + 30
     flat = Flat.new(name: flat_name, address: flat_address, nb_rooms: rand(2) + 1, nb_people_max: rand(6), pets_allowed: pets_allowed, wifi_available: wifi_available, wifi_pwd: wifi_pwd, description: description, price: price.to_i)
     flat.user = user
-    puts "    >>>> Flat #{x / 2} created" if flat.save
+    if flat.save
+      pic_urls = ["https://picsum.photos/1200/1200/?random", "https://picsum.photos/1200/1200/?random"]
+      flat.photo_urls = pic_urls
+      puts "    >>>> Flat #{x / 2} created"
+    end
   end
   puts ""
 end
