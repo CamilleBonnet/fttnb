@@ -5,9 +5,9 @@
       <div class="col-xd-12 col-md-6 col-md-offset-3">
         <h2>Hey, I'm <%= @user.first_name %> <%= @user.last_name %></h2>
         <% if @user.photo? %>
-        <%= cl_image_tag @user.photo.path, class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= cl_image_tag @user.photo.path, class: "avatar avatar-profile" %>
         <% else %>
-        <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar avatar-profile"%>
         <% end %>
         <div>
           login email: <%= Registration.find(current_user.registration_id).email %>
@@ -22,7 +22,7 @@
               <div class="">
                 <div class="flat-info">
                   <h2><%= flat.name %></h2>
-                  <%= flat.address %>
+                  Address: <%= flat.address %>
                 </div>
                 <div class="flat-photos">
                   <% if flat.photos? %>
@@ -31,7 +31,7 @@
                   <% end %>
                   <% end %>
                 </div>
-                <%= link_to "Edit Flat", edit_flat_path, class:"btn btn-warning" %>
+                <%= link_to "Edit Flat", edit_flat_path(flat), class:"btn btn-warning" %>
                 <%= link_to "Delete flat", flat_path(flat), method: :delete, class:"btn btn-danger" %>
               </div>
             <% end %>

@@ -12,13 +12,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-
   end
 
   def update
    current_user
    current_user.update(user_params)
-   redirect_to root_path
+   redirect_to myprofile_path
   end
 
   private

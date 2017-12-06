@@ -22,7 +22,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(params_flat)
     @flat.user = user
     if @flat.save
-      redirect_to flats_path
+      redirect_to myprofile_path
     else
       render :new
     end
@@ -33,12 +33,12 @@ class FlatsController < ApplicationController
 
   def update
     @flat.update(params_flat)
-    redirect_to user_profile_path(current_user)
+    redirect_to myprofile_path
   end
 
   def destroy
     @flat.destroy
-    redirect_to flats_path
+    redirect_to myprofile_path
   end
 
   private
