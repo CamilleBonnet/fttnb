@@ -1,5 +1,6 @@
 <%= render 'shared/banner' %>
-
-<% @flats.each do |flat| %>
+<div class="container cards_container">
+  <% @flats.each do |flat| %>
   <%= render 'shared/card', flat: flat %>
-<% end %>
+  <% end %>
+</div>
