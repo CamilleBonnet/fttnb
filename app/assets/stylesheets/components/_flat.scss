@@ -1,14 +1,36 @@
 .info-container {
-  border: 1px solid;
   display: flex;
-  height: 1500px;
+  height: 700px;
+  width:60%;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  top: 10px;
 }
 
 .booking-form {
-  border: 2px solid;
-  width: 25%;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px #999;
+  margin-top: 60px;
+  padding: 20px;
+  width: 30%;
+  height: 50vh;
   position: sticky;
   top: 30px;
+}
+
+.flat-photo {
+  margin-top:20px;
+}
+
+.map {
+  height:400px;
+  margin-top:20px;
+  width:60%;
+}
+.review {
+  height:600px;
+  margin-top:20px;
+  width:60%;
 }
