@@ -2,19 +2,22 @@ class UsersController < ApplicationController
 
 
   def show
-    @user = User.find(params[:id])
-
+    if params[:id] == 'myprofile'
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
+    @user_flats = Flat.where(user_id: current_user.id)
   end
 
   def edit
     @user = current_user
-
   end
 
   def update
    current_user
    current_user.update(user_params)
-   redirect_to root_path
+   redirect_to myprofile_path
   end
 
   private
