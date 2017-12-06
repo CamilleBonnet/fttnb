@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_registration!, only: [:home, :index]
+  skip_before_action :authenticate_registration!, only: [:home, :index, :show]
 
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
   before_action :set_all_flats, only: [:home, :index]
@@ -33,7 +33,7 @@ class FlatsController < ApplicationController
 
   def update
     @flat.update(params_flat)
-    redirect_to flat_path(@flat)
+    redirect_to user_profile_path(current_user)
   end
 
   def destroy
