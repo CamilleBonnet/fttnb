@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   devise_for :registrations, :controllers => { registrations: "registrations"}
+  post 'registrations', to: "registrations#create", as: "registration_create"
 
   root to: 'flats#home'
 
