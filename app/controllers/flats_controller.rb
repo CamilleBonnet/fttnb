@@ -1,14 +1,13 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_registration!, only: :home
+  skip_before_action :authenticate_registration!, only: [:home, :index]
 
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  before_action :set_all_flats, only: [:home, :index]
 
   def home
-    "Hello"
   end
 
   def index
-    @flats = Flat.all
   end
 
   def show
@@ -43,6 +42,10 @@ class FlatsController < ApplicationController
   end
 
   private
+
+  def set_all_flats
+    @flats = Flat.all
+  end
 
   def set_flat
     @flat = Flat.find(params[:id])
