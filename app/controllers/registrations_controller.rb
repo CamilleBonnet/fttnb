@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+
   def create
     super do
       User.create(registration_id: resource.id)
@@ -8,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     protected
 
   def after_sign_up_path_for(resource)
-    edit_user_profile_path(resource.user)
+    root_path
+    # edit_user_profile_path(resource.user)
   end
 end
