@@ -1,2 +1,5 @@
-<h1>Flat#home</h1>
-<p>Find me in app/views/flat/home.html.erb</p>
+<%= render 'shared/banner' %>
+
+<% @flats.each do |flat| %>
+  <%= render 'shared/card', flat: flat %>
+<% end %>

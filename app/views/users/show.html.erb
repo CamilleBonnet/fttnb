@@ -3,13 +3,23 @@
   <div class="row">
     <div class="username">
       <div class="col-sm-8 col-md-12 col-lg-12">
-       <h2>Hey, I'm <%=@user.first_name %></h2>
-     </div>
-     <div class="edit_profile_container space-3">
-      <%= link_to 'Edit profile',edit_user_profile_path(current_user), {class: "btn"}%>
-     </div>
-     <div class="col-lg-3 col-md-4 hide-sm profile-pic">
-      <%= image_tag "https://a0.muscache.com/defaults/user_pic-225x225.png?v=3", options={size: "225x225",  alt: "Maria"} %>
+        <h2>Hey, I'm <%= @user.first_name %> <%= @user.last_name %></h2>
+      </div>
+      <div class="col-lg-3 col-md-4 hide-sm profile-pic">
+        <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% else %>
+        <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% end %>
+        <% if current_user == @user %>
+        <div class="edit_profile_container space-3">
+          <%= link_to 'Edit profile', edit_user_profile_path(@user), {class: "btn btn-warning"}%>
+        </div>
+        <% end %>
+        <div>
+          login email: <%= Registration.find(current_user.registration_id).email %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
