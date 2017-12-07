@@ -22,7 +22,7 @@ nb_seed.times do |x|
   if x % 2 == 0
     puts "    >>>> Let's create Flat #{x / 2}"
     flat_name = user_first_name + "'s flat"
-    flat_address = Faker::Address.street_address + ', ' + Faker::Address.city
+    flat_address = Faker::Address.city
     pets_allowed = rand(2) == 1
     wifi_available = rand(2) == 1
     wifi_pwd = wifi_available ? Faker::Internet.password(8) : ""
