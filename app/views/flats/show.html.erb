@@ -44,11 +44,7 @@
   </div>
   <div class="col-xs-12 col-md-4 booking-form">
     <h3>Book this flat</h3>
-    <%= simple_form_for(@flat) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :address %>
-      <%= f.submit %>
-    <% end %>
+    <%= render 'bookings/form' %>
   </div>
   <div id="map-show" style="width: 60%; height: 600px;">
   </div>

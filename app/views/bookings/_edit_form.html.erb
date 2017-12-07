@@ -1,0 +1,4 @@
+<%= simple_form_for([@flat, @booking]) do |f| %>
+  <%= f.input :price_booking, label: "the number of nights * price per night" %>
+  <%= f.submit class:"btn btn-primary" %>
+<% end %>

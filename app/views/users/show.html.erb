@@ -26,9 +26,9 @@
                 </div>
                 <div class="flat-photos">
                   <% if flat.photos? %>
-                  <% flat.photos.each do |photo| %>
-                  <%= cl_image_tag photo.path, width: 150, crop: :fill %>
-                  <% end %>
+                    <% flat.photos.each do |photo| %>
+                      <%= cl_image_tag photo.path, width: 150, crop: :fill %>
+                    <% end %>
                   <% end %>
                 </div>
                 <%= link_to "Edit Flat", edit_flat_path(flat), class:"btn btn-warning" %>
