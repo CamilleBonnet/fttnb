@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Registrations::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     registration = Registration.find_for_facebook_oauth(request.env['omniauth.auth'])
 

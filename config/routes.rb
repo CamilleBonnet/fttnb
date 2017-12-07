@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :registrations, :controllers => {
     registrations: "registrations",
-    omniauth_callbacks: 'users/omniauth_callbacks'
-     }
+    omniauth_callbacks: "registrations/omniauth_callbacks"
+  }
   post 'registrations', to: "registrations#create", as: "registration_create"
-  omniauth_callbacks: 'users/omniauth_callbacks'
+
   root to: 'flats#home'
 
   # routes for the flat model

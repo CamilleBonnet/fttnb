@@ -2,7 +2,7 @@ class Registration < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   has_one :user
 
@@ -16,7 +16,7 @@ def self.find_for_facebook_oauth(auth)
     user_params = user_params.to_h
 
     user = User.find_by(provider: auth.provider, uid: auth.uid) # find the provider on the user!
-    registration  = user.registration || Registration.find_by(email: auth.info.email) # User did a regular sign up in the past.
+    registration  = user.try(:registration) || Registration.find_by(email: auth.info.email) # User did a regular sign up in the past.
     if registration # now if there is a registration, update !
       registration.update(email: user_params["email"])
       user_params.delete("email")
