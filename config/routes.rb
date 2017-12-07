@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
-  devise_for :registrations, :controllers => { registrations: "registrations"}
+  devise_for :registrations, :controllers => {
+    registrations: "registrations",
+    omniauth_callbacks: 'users/omniauth_callbacks'
+     }
   post 'registrations', to: "registrations#create", as: "registration_create"
-
+  omniauth_callbacks: 'users/omniauth_callbacks'
   root to: 'flats#home'
 
   # routes for the flat model
@@ -18,6 +21,10 @@ Rails.application.routes.draw do
   get 'users/profile/edit', to: "users#edit", as: "edit_user_profile"
   patch 'users/:id', to: "users#update", as: "user_profile"
   delete 'users', to: "users#destroy"
+
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
