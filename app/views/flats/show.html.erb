@@ -2,16 +2,16 @@
     <% if @flat.photos? %>
       <% @flat.photos.each do |photo| %>
   <div class="row">
-        <div class="col-xs-12 col-md-4 col-xs-offset-1 flat-photo">
+        <div class="col-xs-12 col-md-4 flat-photo">
           <%= cl_image_tag photo.path, width: 950, height: 250, crop: :fill %>
         </div>
   </div>
       <% end %>
     <% end %>
 </div>
-<div class="container text-center">
+<div class="container">
   <div class="col-xs-12 col-md-8 info-container">
-    <h2>This flat belongs to <%= link_to @flat.user.first_name + " (see the owner's reviews)", user_profile_path(@flat.user) %></h2>
+    <h2>This flat belongs to <%= link_to @flat.user.first_name, user_profile_path(@flat.user) %></h2>
     <h2>Name of flat:<%= @flat.name %></h2>
     <div class="row">
       <h4>Address ?</h4>
@@ -47,12 +47,16 @@
     <%= simple_form_for(@flat) do |f| %>
       <%= f.input :name %>
       <%= f.input :address %>
+      <%= f.submit %>
     <% end %>
   </div>
-  <div class="col-xs-12 col-md-8 review">
-    <h2>Reviews</h2>
-  </div>
-  <div class="col-xs-12 col-md-8 map">
-    <h2>Map</h2>
+  <div class="col-xs-12 col-md-8" id="map-show">
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+<script>
+    const coord = <%= raw @flat_coordinates.to_json %>;
+</script>
+<% end %>
+
