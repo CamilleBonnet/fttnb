@@ -8,8 +8,12 @@ class FlatsController < ApplicationController
   end
 
   def index
-    # params = param[]
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
+    if params["city_user"].nil? || params["city_user"] == ""
+      @flats = Flat.where.not(latitude: nil, longitude: nil)
+    else
+      city = params.permit(:city_user)
+      @flats = Flat.near(city["city_user"], 50)
+    end
 
     @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
