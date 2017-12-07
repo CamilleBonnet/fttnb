@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_attachment :photo
   has_many :flats
   has_many :bookings
+
 end
