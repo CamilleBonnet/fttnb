@@ -29,10 +29,11 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.photo? %>
-            <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" || avatar_url = current_user.facebook_picture_url %>
+          <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= cl_image_tag current_user.facebook_picture_url ||  "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
+
 
 
       <!--     < avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
