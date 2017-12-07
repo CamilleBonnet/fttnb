@@ -1,3 +1,5 @@
+ADDRESSES = ["Paris", "New York", "Casablanca", "Budapest", "Bucarest", "Timisoara", "Marseille", "San Francisco", "Singapore", "Manilla"]
+
 puts "Beginnig of Seeding !"
 nb_seed = 20
 
@@ -22,7 +24,7 @@ nb_seed.times do |x|
   if x % 2 == 0
     puts "    >>>> Let's create Flat #{x / 2}"
     flat_name = user_first_name + "'s flat"
-    flat_address = Faker::Address.city
+    flat_address = ADDRESSES[rand(10)]
     pets_allowed = rand(2) == 1
     wifi_available = rand(2) == 1
     wifi_pwd = wifi_available ? Faker::Internet.password(8) : ""
