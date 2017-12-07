@@ -1,0 +1,43 @@
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  height: 85vh;
+  padding: 30px;
+}
+
+.user-bookings {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+  display:block;
+}
+
+.flats-bookings {
+  grid-column:2 / span 1;
+  grid-row:1 / span 1;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+  display:block;
+}
+
+// .bookings {
+//   background: white;
+//   padding: 20px;
+//   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   margin: 10px;
+// }

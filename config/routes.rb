@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookings/edit'
+
   mount Attachinary::Engine => "/attachinary"
 
   devise_for :registrations, :controllers => { registrations: "registrations"}
@@ -10,7 +12,16 @@ Rails.application.routes.draw do
   resources :flats do
     resources :bookings, only: [:create, :update]
   end
+
   get '/mybookings', to: "bookings#index"
+  get '/mybookings/:id/edit', to: "bookings#edit", as: "edit_booking"
+  # patch '/mybookings/:id', to: "bookings#update", as: "booking"
+  delete '/mybookings/:id', to: "bookings#destroy", as: "delete_booking"
+
+  get '/mybookings/accept/:id', to: "bookings#accept", as: "accept_booking"
+  get '/mybookings/decline/:id', to: "bookings#decline", as: "decline_booking"
+  get '/mybookings/cancel/:id', to: "bookings#cancel", as: "cancel_booking"
+
 
   # routes for the user model
   get 'users/:id', to: "users#show", as: "user"
