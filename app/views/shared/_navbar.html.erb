@@ -4,16 +4,12 @@
     <%= image_tag "airbnb-2.jpg", height: 50 %>
   <% end %>
 
-  <div class="search-form-wrapper ">
-      <form action="<%= flats_path %>" method="get" class="form-inline">
-        <%= text_field_tag :city_user, params[:city_user], :autofocus => true, placeholder: 'Search', required: false, class:"text-left", style:"height: 40px;"%>
+  <div class="search-form-wrapper">
+      <form action="<%= flats_path %>" method="get" class="form-inline" for="flat_address">
+        <%= text_field_tag :city_user, params[:city_user], id:"flat_address", :autofocus => true, required: false, class:"text-left search-navbar" %>
         <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
       </form>
   </div>
-
-
-
-
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
