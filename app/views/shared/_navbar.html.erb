@@ -5,10 +5,10 @@
   <% end %>
 
   <div class="search-form-wrapper ">
-    <%= simple_form_for :search, url: flats_path, html: {class: 'form-inline'}, method: :get do |f| %>
-          <%= f.input :query, :label => false, :autofocus => true, placeholder: 'Search', required: false %>
-          <%= f.submit "Submit", class: "btn btn-primary" %>
-      <% end %>
+      <form action="<%= flats_path %>" method="get" class="form-inline">
+        <%= text_field_tag :city_user, params[:city_user], :autofocus => true, placeholder: 'Search', required: false, class:"text-left", style:"height: 40px;"%>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+      </form>
   </div>
 
 
