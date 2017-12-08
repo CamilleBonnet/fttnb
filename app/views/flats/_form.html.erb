@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-md-4 col-md-offset-4">
       <%= simple_form_for [@user, @flat] do |f| %>
       <%= f.input :name, required: true %>
-      <%= f.input :address, required: true%>
+      <%= f.input :address, required: true, :input_html => { :id => "flat_address_2" } %>
       <%= f.input :description, required: true %>
       <%= f.input :nb_rooms, required: true%>
       <%= f.input :nb_people_max, required: true %>
