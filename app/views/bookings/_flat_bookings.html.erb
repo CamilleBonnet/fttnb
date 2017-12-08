@@ -1,25 +1,33 @@
 
 <div class="message">
-  <%= cl_image_tag booking.flat.user.photo.path, class:"avatar" %>
+  <% if booking.user.photo? %>
+    <%= cl_image_tag booking.user.photo.path, class:"avatar" %>
+    <% else %>
+    <%= image_tag booking.user.facebook_picture_url ||  "http://kitt.lewagon.com/placeholder/users/ssaunier", class:"avatar"%>
+  <% end %>
   <div class="message-name">
-    <h3><%= booking.flat.name %> </h3>
+    <p><strong>Booker:</strong></p>
+    <h3><%= booking.user.first_name %></h3>
+    <h3><%= booking.user.last_name %></h3>
   </div>
-  <div class="message-body">
-    <p><strong>this flat is owned by <%= booking.flat.user.first_name %></strong></p>
-    <p>
-      Some text
-    </p>
+  <div class="message-name">
+    <p><strong>Flat:</strong></p>
+    <h3><%= booking.flat.name %></h3>
   </div>
   <div class="message-status">
-    <p class="status pending"><%= booking.status %></p>
-    <p class="price"><%= booking.price_booking %>€</p>
+    <p class="status pending">Status: <%= booking.status %></p>
+    <p class="price"><%= booking.flat.price.to_i %>€ x <%= booking.nb_night %> nights</p>
+    <p class="price"><%= booking.price_booking.to_i %>€</p>
   </div>
   <div class="booking-btn">
-
-    <%= link_to "Accept this booking", accept_booking_path(booking), class:"btn btn-success btn-sm" %>
-    <%= link_to "Decline this booking", decline_booking_path(booking), class:"btn btn-warning btn-sm" %>
-    <%= link_to "Cancel this booking", cancel_booking_path(booking), class:"btn btn-danger btn-sm" %>
-    <%= link_to "Edit this booking", edit_booking_path(booking), class:"btn btn-primary btn-sm" %>
-    <%= link_to "Delete this booking", delete_booking_path(booking), method: :delete, class:"btn btn-danger btn-sm" %>
+    <%= link_to accept_booking_path(booking) do %>
+        <i class="fa fa-check" style="color:green"></i> <%= t(".profile", default: "Accept") %>
+    <% end %>
+    <%= link_to decline_booking_path(booking) do %>
+      <i class="fa fa-times" style="color:red"></i> <%= t(".profile", default: "Decline") %>
+    <% end %>
+    <%= link_to delete_booking_path(booking) do %>
+      <i class="fa fa-ban" style="color:red"></i> <%= t(".profile", default: "Decline") %>
+    <% end %>
   </div>
 </div>
