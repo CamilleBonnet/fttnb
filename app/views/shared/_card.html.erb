@@ -1,7 +1,12 @@
   <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%=cl_image_path flat.photos.first.path, height: 300, width: 400, crop: :fill unless flat.photos.first.nil? %>')">
+      <div class="card-category">
+        <p><%= flat.name %></p>
+        <p><%= flat.price.to_i %> € / night</p>
+        </div>
       <div class="card-description">
-        <h2><%= flat.name %></h2>
+        <h2><%= flat.address %></h2>
+        <p><%= flat.description %></p>
       </div>
       <%= link_to "", flat_path(flat), class: "card-link" %>
     </div>
