@@ -1,7 +1,7 @@
-ADDRESSES = ["Paris", "New York", "Casablanca", "Budapest", "Bucarest", "Timisoara", "Marseille", "San Francisco", "Singapore", "Manilla"]
+ADDRESSES = ["Eiffel Tower", "Paris", "One Altitude, Singapore", "Suresnes, France", "Porte de Versailles", "Timisoara", "Alcatraz, San Francisco", "San Francisco", "150 South bridge Road", "club street, singapore", "London", "Turf road, Singapore", "107 boulevard Charonne, Paris", "Sevres Babylone, Paris", "New York"]
 
 puts "Beginnig of Seeding !"
-nb_seed = 20
+nb_seed = 30
 
 puts "Let's seed with #{nb_seed} users and #{nb_seed / 2} flats"
 
@@ -24,7 +24,7 @@ nb_seed.times do |x|
   if x % 2 == 0
     puts "    >>>> Let's create Flat #{x / 2}"
     flat_name = user_first_name + "'s flat"
-    flat_address = ADDRESSES[rand(10)]
+    flat_address = ADDRESSES[(x / 2)]
     pets_allowed = rand(2) == 1
     wifi_available = rand(2) == 1
     wifi_pwd = wifi_available ? Faker::Internet.password(8) : ""
