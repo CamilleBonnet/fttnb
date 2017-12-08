@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     booking = Booking.new(start_booking: start_booking, end_booking: end_booking,
       user_id: current_user.id, flat_id: flat.id, status: "Pending",
       price_booking: nb_nights * price, nb_night: nb_nights)
-
+raise
     if booking.save
       redirect_to mybookings_path
     else
@@ -73,7 +73,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_booking, :end_booking, :price_booking)
+    params.require(:booking).permit(:start_booking, :end_booking, :price_booking, :nb_night)
   end
 
 

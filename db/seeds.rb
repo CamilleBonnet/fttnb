@@ -41,3 +41,5 @@ nb_seed.times do |x|
   puts ""
 end
 
+
+Booking.create(nb_night: 5)
