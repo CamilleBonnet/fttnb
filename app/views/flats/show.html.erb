@@ -1,42 +1,78 @@
 <div class="container">
-    <% if @flat.photos? %>
-      <% @flat.photos.each do |photo| %>
   <div class="row">
-        <div class="col-xs-12 col-md-4 flat-photo">
-          <%= cl_image_tag photo.path, width: 950, height: 250, crop: :fill %>
+    <div class="col-xs-12 col-md-12 flat-photo">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= cl_image_tag @flat.photos[0].path if @flat.photos? %>
+            <div class="carousel-caption">
+              <h3><%= @flat.name %></h3>
+              <p><%= @flat.description %></p>
+            </div>
+          </div>
+          <div class="item">
+            <%= cl_image_tag @flat.photos[1].path if @flat.photos? %>
+            <div class="carousel-caption">
+              <h3><%= @flat.name %></h3>
+              <p><%= @flat.description %></p>
+            </div>
+          </div>
         </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
   </div>
-      <% end %>
-    <% end %>
 </div>
 <div class="container">
   <div class="col-xs-12 col-md-8 info-container">
-    <h2>This flat belongs to <%= link_to @flat.user.first_name, user_profile_path(@flat.user) %></h2>
-    <h2>Name of flat:<%= @flat.name %></h2>
     <div class="row">
-      <h4>Address ?</h4>
+    <h2><%= @flat.name %> <br> <%= link_to "Go to " + @flat.user.first_name + "'s profile", user_profile_path(@flat.user), class:"btn btn-danger btn-sm" %></h2>
+    </div>
+    <br>
+    <div class="row">
+      <h4>Address</h4>
       <p><%= @flat.address %></p>
     </div>
+    <br>
     <div class="row">
-      <h4>How many rooms ?</h4>
+      <h4>How many rooms</h4>
      <p><%= @flat.nb_rooms %> rooms</p>
     </div>
+    <br>
     <div class="row">
-      <h4>Flat max capacity ?</h4>
+      <h4>Flat max capacity</h4>
      <p><%= @flat.nb_people_max %> people</p>
     </div>
+    <br>
     <div class="row">
-     <h4>Pets allowed ?</h4>
+     <h4>Pets allowed</h4>
      <p><%= @flat.pets_allowed ? 'Yes' : 'No' %></p>
     </div>
+    <br>
     <div class="row">
-     <h4>Wifi ?</h4>
+     <h4>Wifi</h4>
      <p><%= @flat.wifi_available ? 'Yes' : 'No' %></p>
     </div>
+    <br>
     <div class="row">
-     <h4>Pickup Services ?</h4>
+     <h4>Pickup Services</h4>
      <p><%= @flat.pick_up_services ? 'Yes' : 'No' %></p>
     </div>
+    <br>
     <div class="row">
       <h4>Price</h4>
      <p><%= @flat.price %>€ per night</p>
@@ -65,4 +101,11 @@
     });
 </script>
 <% end %>
+
+
+
+<div class="container">
+  <br>
+
+</div>
 

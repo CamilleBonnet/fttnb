@@ -1,15 +1,13 @@
 .info-container {
   display: flex;
-  height: 700px;
+  height: 1000px;
   width:60%;
   flex-direction: column;
   align-items: stretch;
-  align-content: stretch;
   top: 10px;
 }
 
 .booking-form {
-  border-radius: 8px;
   background-color: #fff;
   box-shadow: 1px 1px 10px #999;
   margin-top: 60px;
@@ -22,6 +20,12 @@
 
 .flat-photo {
   margin-top:20px;
+  height:500px;
+  overflow: hidden;
+}
+
+.flat-photo img {
+  width:100%;
 }
 
 .map-show {
@@ -29,8 +33,11 @@
   margin-top:20px;
   width:60%;
 }
-.review {
-  height:600px;
-  margin-top:20px;
-  width:60%;
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 80%;
+    margin: auto;
+    height:500px;
 }
+
