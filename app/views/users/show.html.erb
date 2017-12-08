@@ -1,6 +1,6 @@
 
-<div class="container profile-container">
-  <div class="col-xd-12 col-md-6 col-md-offset-3">
+<div class="container ">
+  <div class="col-xs-12 col-md-6 col-md-offset-4">
     <div class="row">
       <div class="container username" >
           <h2>Hey, I'm <%= @user.first_name %> <%= @user.last_name %></h2>
@@ -11,35 +11,36 @@
           <% end %>
       </div>
     </div>
-    <div class="row">
-      <% if current_user == @user %>
-        <div>
-          login email: <%= Registration.find(current_user.registration_id).email %>
-        </div>
-        <div class="edit_profile_container space-3">
-          <%= link_to 'Edit profile', edit_user_profile_path(@user), {class: "btn btn-warning"}%>
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <% if current_user == @user %>
-        <% unless @user_flats.empty? %>
-          <% @user_flats.each do |flat| %>
-            <div class="row">
-            <%= render 'shared/card', flat: flat %>
-            <div class="booking-btn">
-            <%= link_to "Edit Flat", edit_flat_path(flat), class:"btn btn-warning", style:"width: 120px; margin-top:20px;" %>
-            <%= link_to "Delete flat", flat_path(flat), method: :delete, class:"btn btn-danger", style:"width: 120px; margin-top:20px" %>
-            </div>
-            </div>
-          <% end %>
+      <div class="row">
+        <% if current_user == @user %>
+          <div>
+            login email: <%= Registration.find(current_user.registration_id).email %>
+          </div>
+          <div class="edit_profile_container">
+            <%= link_to 'Edit my profile', edit_user_profile_path(@user), {class: "btn btn-warning"}%>
+            <%= link_to "Add my flat", new_flat_path, class:"btn btn-primary" %>
+          </div>
         <% end %>
-      <% end %>
-    </div>
-        <%# raise %>
-    <div class="row">
-      <%= link_to "Create a new flat", new_flat_path, class:"btn btn-primary" %>
-    </div>
+      </div>
   </div>
 </div>
 
+  <div class="container">
+    <div class="col-xs-12 col-md-12 col-md-offset-3">
+      <div class="row">
+        <% if current_user == @user %>
+          <% unless @user_flats.empty? %>
+            <% @user_flats.each do |flat| %>
+            <div class="row">
+              <%= render 'shared/card', flat: flat %>
+              <div class="booking-btn">
+                <%= link_to "Edit my Flat", edit_flat_path(flat), class:"btn btn-warning", style:"width: 200px; margin-top:20px;" %>
+                <%= link_to "Remove my flat", flat_path(flat), method: :delete, class:"btn btn-danger", style:"width: 200px;margin-top:20px" %>
+              </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
