@@ -1,46 +1,45 @@
 
 <div class="container profile-container">
-  <div class="row">
-    <div class="username">
-      <div class="col-xd-12 col-md-6 col-md-offset-3">
-        <h2>Hey, I'm <%= @user.first_name %> <%= @user.last_name %></h2>
-        <% if @user.photo? %>
+  <div class="col-xd-12 col-md-6 col-md-offset-3">
+    <div class="row">
+      <div class="container username" >
+          <h2>Hey, I'm <%= @user.first_name %> <%= @user.last_name %></h2>
+          <% if @user.photo? %>
           <%= cl_image_tag @user.photo.path, class: "avatar dropdown-toggle", class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-            <%= image_tag @user.facebook_picture_url ||  "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag @user.facebook_picture_url ||  "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", class: "avatar dropdown-toggle" , id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
-
-
-        <% if current_user == @user %>
+      </div>
+    </div>
+    <div class="row">
+      <% if current_user == @user %>
         <div>
           login email: <%= Registration.find(current_user.registration_id).email %>
         </div>
-          <div class="edit_profile_container space-3">
-            <%= link_to 'Edit profile', edit_user_profile_path(@user), {class: "btn btn-warning"}%>
-          </div>
-          <%# raise %>
-          <% unless @user_flats.empty? %>
-            <% @user_flats.each do |flat| %>
-              <div class="">
-                <div class="flat-info">
-                  <h2><%= link_to flat.name, flat_path(flat) %></h2>
-                  Address: <%= flat.address %>
-                </div>
-                <div class="flat-photos">
-                  <% if flat.photos? %>
-                    <% flat.photos.each do |photo| %>
-                      <%= cl_image_tag photo.path, width: 150, crop: :fill %>
-                    <% end %>
-                  <% end %>
-                </div>
-                <%= link_to "Edit Flat", edit_flat_path(flat), class:"btn btn-warning" %>
-                <%= link_to "Delete flat", flat_path(flat), method: :delete, class:"btn btn-danger" %>
-              </div>
-            <% end %>
+        <div class="edit_profile_container space-3">
+          <%= link_to 'Edit profile', edit_user_profile_path(@user), {class: "btn btn-warning"}%>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <% if current_user == @user %>
+        <% unless @user_flats.empty? %>
+          <% @user_flats.each do |flat| %>
+            <div class="row">
+            <%= render 'shared/card', flat: flat %>
+            <div class="booking-btn">
+            <%= link_to "Edit Flat", edit_flat_path(flat), class:"btn btn-warning", style:"width: 120px; margin-top:20px;" %>
+            <%= link_to "Delete flat", flat_path(flat), method: :delete, class:"btn btn-danger", style:"width: 120px; margin-top:20px" %>
+            </div>
+            </div>
           <% end %>
-        <%= link_to "Create a new flat", new_flat_path, class:"btn btn-primary" %>
         <% end %>
-      </div>
+      <% end %>
+    </div>
+        <%# raise %>
+    <div class="row">
+      <%= link_to "Create a new flat", new_flat_path, class:"btn btn-primary" %>
     </div>
   </div>
 </div>
+
