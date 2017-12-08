@@ -3,6 +3,7 @@ function onPlaceChanged() {
   // var components = getAddressComponents(place);
 
   var flatAddress = document.getElementById('flat_address');
+  var flatAddress_2 = document.getElementById('flat_address_2');
   // flatAddress.blur();
   // flatAddress.value = components.address;
 
@@ -59,11 +60,25 @@ function getAddressComponents(place) {
 
 document.addEventListener("DOMContentLoaded", function() {
   var flatAddress = document.getElementById('flat_address');
+  console.log("working")
 
   if (flatAddress) {
     var autocomplete = new google.maps.places.Autocomplete(flatAddress, { types: ['geocode'] });
     google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
     google.maps.event.addDomListener(flatAddress, 'keydown', function(e) {
+      if (e.key === "Enter") {
+        e.preventDefault(); // Do not submit the form on Enter.
+      }
+    });
+  }
+
+    var flatAddress2 = document.getElementById('flat_address_2');
+  console.log(flatAddress2)
+
+  if (flatAddress2) {
+    var autocomplete = new google.maps.places.Autocomplete(flatAddress2, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    google.maps.event.addDomListener(flatAddress2, 'keydown', function(e) {
       if (e.key === "Enter") {
         e.preventDefault(); // Do not submit the form on Enter.
       }
