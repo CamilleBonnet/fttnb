@@ -1,10 +1,13 @@
 .profile-container{
   display: absolute;
+
 }
 
 
 .username{
   justify-content: space-between;
+  display:absolute;
+  align-items: flex-start;
 }
 .btn.profile-container{
   position: relative;
