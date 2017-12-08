@@ -1,7 +1,7 @@
 <div class="container">
   <div class="grid">
     <div class="user-bookings">
-      <h3 class="text-center">My bookings for flats</h3>
+      <h3 class="text-center">My bookings</h3>
       <% current_user.bookings.each do |booking| %>
 
       <div class="booking">
@@ -11,7 +11,7 @@
       <% end %>
     </div>
     <div class="flats-bookings">
-      <h3 class="text-center">My flats booked by strangers...</h3>
+      <h3 class="text-center">My flats</h3>
       <% current_user.flats.each do |flat| %>
         <% flat.bookings.each do |booking| %>
           <%= render 'flat_bookings', booking: booking %>
