@@ -4,7 +4,7 @@
 <% end -%>
 
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), class:'btn btn-primary' %>
+  <%= link_to "Log in", new_session_path(resource_name), class:'btn btn-warning' %>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -21,6 +21,6 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %>
+    <%= link_to "#{OmniAuth::Utils.camelize(provider)} login", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
   <% end -%>
 <% end -%>
