@@ -21,13 +21,13 @@
   </div>
   <div class="booking-btn">
     <%= link_to accept_booking_path(booking) do %>
-        <i class="fa fa-check" style="color:green"></i> <%= t(".profile", default: "Accept") %>
+        <i class="fa fa-check" style="color:green"></i>
     <% end %>
     <%= link_to decline_booking_path(booking) do %>
-      <i class="fa fa-times" style="color:red"></i> <%= t(".profile", default: "Decline") %>
+      <i class="fa fa-times" style="color:red"></i>
     <% end %>
     <%= link_to delete_booking_path(booking), method: :delete do %>
-      <i class="fa fa-ban" style="color:red"></i> <%= t(".profile", default: "Delete") %>
+      <i class="fa fa-ban" style="color:red"></i>
     <% end %>
   </div>
 </div>
